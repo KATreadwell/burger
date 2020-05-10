@@ -4,6 +4,8 @@
 
 <ul>
     {{#each burger}}
+      <p>Name: {{name}} </p>
+    {{/each}}
 </ul>
 
 <form class="create-form">
@@ -12,7 +14,7 @@
     <label for="burgerInput">Burger Name:</label>
     <input type="text" id="burgerInput" name="name">
   </div>
+</form>
 
   <button type="submit">Add Burger</button>
   
-</form>

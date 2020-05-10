@@ -1,3 +1,3 @@
-INSERT INTO burgers (burger, devoured) VALUES ('Maui Burger', '0');
-INSERT INTO burgers (burger, devoured) VALUES ('BLT', '0');
-INSERT INTO burgers (burger, devoured) VALUES ('Hickory Burger', '0');
+INSERT INTO burgers (name) VALUES ('Maui Burger');
+INSERT INTO burgers (name) VALUES ('BLT');
+INSERT INTO burgers (name) VALUES ('Hickory Burger');
