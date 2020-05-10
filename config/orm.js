@@ -1,15 +1,28 @@
-// Import (require) connection.js into orm.js
-
 let connection = require("../config/connection")
 
-// In the orm.js file, create the methods that will execute the necessary MySQL commands in the controllers. 
-// These are the methods you will need to use in order to retrieve and store data in your database.
+//helper function to convert an array of ? and converts into string
+function printQuestionMarks(num) {
+    var arr = [];
+    for (var i = 0; i < num, i++) {
+        arr.push("?");
+    }
+}
 
-// selectAll()
-// insertOne()
-// updateOne()
+//helper function to convert object key/value pairs to SQL syntax
+function objToSql(ob) {
+    var arr = [];
 
-// Export the ORM object in module.exports.
+    for (var key in ob) {
+        var value = ob[key];
+        if (Object.hasOwnProperty.call(ob, key)) {
+            if (typeof value === "string" && value.indexOf(" ") >= 0) {
+                value = "'" + value + "'";
+            }
+            arr.push(key + "=" + value);
+        }
+    }
+    return arr.toString();
+}
 
 const orm = {
     connection: connection,
@@ -25,14 +38,29 @@ const orm = {
             console.log(res);
         })
     },
-    insertOne: (cols, table, vals, cb) => {
-        connection.query("INSERT INTO " + table, cols, vals, (err, res) => {
-            if (err) { throw err; }
-            console.log(res);
-        })
-    },
+    // updateOne: (objColVals, table, condition, cb) => {
+    //     connection.query("UPDATE " + table, cols, vals, (err, res) => {
+    //         if (err) { throw err; }
+    //         console.log(res);
+    //     })
+    update: function (table, objColVals, vals, cb) {
+        var queryString = "UPDATE " + table;
 
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += vals;
 
+        console.log(queryString);
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
+
+            cb(result);
+        });
+    }
 }
+
 
 module.exports = orm;
