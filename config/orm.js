@@ -1,36 +1,11 @@
 let connection = require("../config/connection")
 
-//helper function to convert an array of ? and converts into string
-// function printQuestionMarks(num) {
-//     var arr = [];
-
-//     for (var i = 0; i < num; i++) {
-//         arr.push("?");
-//     }
-//     return arr.toString();
-// }
-
-//helper function to convert object key/value pairs to SQL syntax
-// function objToSql(ob) {
-//     var arr = [];
-
-//     for (var key in ob) {
-//         var value = ob[key];
-//         if (Object.hasOwnProperty.call(ob, key)) {
-//             if (typeof value === "string" && value.indexOf(" ") >= 0) {
-//                 value = "'" + value + "'";
-//             }
-//             arr.push(key + "=" + value);
-//         }
-//     }
-//     return arr.toString();
-// }
-
 let orm = {
-    selectAll: (cols, table) => {
+    selectAll: (cols, table, cb) => {
         connection.query("SELECT ?? FROM ??", [cols, table], (err, res) => {
             if (err) { throw err; }
             console.log(res);
+            cb(res)
         })
     },
     // insertOne: (cols, table, vals, cb) => {

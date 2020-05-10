@@ -2,9 +2,11 @@ let orm = require("../config/orm")
 
 let burger = {
     selectAll: function(cb) {
-        orm.selectAll("burgers", function(res) {
-            cb(res);
+        //replace function with a string in a table
+        orm.selectAll('*', 'burgers', function (res) {
+            cb(res)    
         });
+        
     },
     // insertOne: function(objColsVals, condition, cb) {
     //     orm.insertOne("burgers", objColsVals, condition, function(res) {
