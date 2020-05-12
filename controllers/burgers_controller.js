@@ -13,15 +13,13 @@ router.get("/", function(req, res) {
     });
 });
 
-// router.post("/api/burgers", function(req, res){
-//     burger.insertOne([
-//         "name", "devoured"
-//     ],  [
-//         req.body.name, req.body.devoured
-//     ], function (result){
-//         res.json({ id: result.insertId});
-//     });
-// });
+router.post("/api/burgers", function(req, res) {
+    let newBurger = req.body;
+    burger.insertOne(newBurger, function(data) {
+        res.send(data)
+    });
+    
+});
 
 // router.put("/api/burgers/:id", function(req, res){
 //     var devoured = "id = " + req.params.id;
