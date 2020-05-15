@@ -15,29 +15,13 @@ let orm = {
             cb(res)
         })
     },
-    // updateOne: (objColVals, table, condition, cb) => {
-    //     connection.query("UPDATE " + table, cols, vals, (err, res) => {
-    //         if (err) { throw err; }
-    //         console.log(res);
-    //     })
-    // updateOne: function (table, objColVals, vals, cb) {
-    //     var queryString = "UPDATE " + table;
-
-    //     queryString += " SET ";
-    //     queryString += objToSql(objColVals);
-    //     queryString += " WHERE ";
-    //     queryString += vals;
-
-    //     console.log(queryString);
-    //     connection.query(queryString, function (err, result) {
-    //         if (err) {
-    //             throw err;
-    //         }
-
-    //         cb(result);
-    //     });
-    // }
+    updateOne: (objColVals, table, condition, cb) => {
+        connection.query("UPDATE " + table, cols, vals, (err, res) => {
+            if (err) { throw err; }
+            console.log(res);
+            cb(result)
+        })
+    }
 }
-
 
 module.exports = orm;
