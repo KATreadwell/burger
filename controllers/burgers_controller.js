@@ -15,11 +15,11 @@ router.get("/", function(req, res) {
 
 router.post("/api/burgers", function(req, res) {
     burger.insertOne([
-        "name", "devoured"
+        "name"
     ], [
-        req.body.name, req.body.devoured
+        req.body.name
     ], function (result) {
-        res.render({id: result.insertId});
+        res.json({id: result.insertId});
     }); 
 });
 

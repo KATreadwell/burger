@@ -9,14 +9,15 @@ let orm = {
         })
     },
     insertOne: (cols, table, vals, cb) => {
-        connection.query("INSERT INTO ?? (??) VALUES (?)", [table, cols, vals], (err, res) => {
+        connection.query("INSERT INTO ?? (??) VALUES (?)", [cols, table, vals], (err, res) => {
             if (err) { throw err; }
             console.log(res);
             cb(res)
         })
     },
-    updateOne: (cols, table, vals, cb) => {
-        connection.query("UPDATE ?? SET devoured = 1 FROM ??", [table, cols, vals], (err, res) => {
+    updateOne: (table, burgerObj, vals, cb) => {
+        let burgerObj = JSON.stringify(burger.input);
+        connection.query("UPDATE ?? SET devoured = 1 WHERE burgerJSON", [burgerJSON, table, vals], (err, res) => {
             if (err) { throw err; }
             console.log(res);
             cb(res)
