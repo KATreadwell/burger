@@ -15,11 +15,11 @@ let orm = {
             cb(res)
         })
     },
-    updateOne: (objColVals, table, condition, cb) => {
-        connection.query("UPDATE " + table, cols, vals, (err, res) => {
+    updateOne: (cols, table, vals, cb) => {
+        connection.query("UPDATE ?? SET devoured = 1 FROM ??", [table, cols, vals], (err, res) => {
             if (err) { throw err; }
             console.log(res);
-            cb(result)
+            cb(res)
         })
     }
 }
