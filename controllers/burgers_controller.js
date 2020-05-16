@@ -19,15 +19,12 @@ router.post("/api/burgers", function(req, res) {
     ], [
         req.body.name
     ], function (result) {
-        res.json({id: result.insertId});
+        res.redirect("/")
     }); 
 });
 
 router.put("/api/burgers/:id", function(req, res){
     let devoured = "id = " + req.params.id;
-
-    console.log("devoured", devoured)
-
     burger.updateOne({
        devoured: req.body.devoured
     }, devoured, function(result) {
