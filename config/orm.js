@@ -15,14 +15,14 @@ let orm = {
             cb(res)
         })
     },
-    updateOne: (table, burgerObj, vals, cb) => {
-        let burgerObj = JSON.stringify(burger.input);
-        connection.query("UPDATE ?? SET devoured = 1 WHERE burgerJSON", [burgerJSON, table, vals], (err, res) => {
-            if (err) { throw err; }
-            console.log(res);
-            cb(res)
-        })
-    }
+    // updateOne: (table, burgerObj, vals, cb) => {
+    //     let burgerObj = JSON.stringify(burger.input);
+    //     connection.query("UPDATE ?? SET devoured = 1 WHERE burgerJSON", [burgerJSON, table, vals], (err, res) => {
+    //         if (err) { throw err; }
+    //         console.log(res);
+    //         cb(res)
+    //     })
+    // }
 }
 
 module.exports = orm;
