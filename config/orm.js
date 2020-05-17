@@ -16,8 +16,12 @@ let orm = {
             cb(res)
         })
     },
-    updateOne: (table, cols, vals, cb) => {
-        connection.query("UPDATE ?? SET devoured = 1 WHERE ?? = ?", [table, cols, vals], (err, res) => {
+    updateOne: (table, cols, vals, id, cb) => {
+        // console.log('cols:', cols); // { devoured: undefined }
+//        let burgerObj = {};
+//        let burgerString = JSON.stringify(burgerObj)
+
+        connection.query("UPDATE ?? SET ?? = ? WHERE id = ?", [table, cols, vals, id], (err, res) => {
             if (err) { throw err; }
             console.log(res);
             cb(res)

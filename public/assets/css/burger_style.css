@@ -7,6 +7,7 @@ body{
 li {
     padding: 10px;
     margin: 10px;
+    font-weight: bold;
   }
   
   .label {
@@ -30,4 +31,10 @@ li {
  .devour-burger{
    font-weight: bolder;
  }
+
+ .burgers{
+  flex-direction: column;
+ }
+
+ 
 

@@ -2,7 +2,6 @@ let express = require("express");
 let router = express.Router();
 let burger = require("../models/burger")
 
-
 router.get("/", function(req, res) {
     burger.selectAll(function(data) {
         let hbsObject = {
@@ -24,10 +23,20 @@ router.post("/api/burgers", function(req, res) {
 });
 
 router.put("/api/burgers/:id", function(req, res){
-    let devoured = "id = " + req.params.id;
-    burger.updateOne({
+    //let devoured = "id = " + req.params.id;
+
+    let cols = ['devoured'];
+    let vals = [req.body.devoured];
+    /*
+    {
        devoured: req.body.devoured
-    }, devoured, function(result) {
+    }, devoured
+    */
+   console.log("console" + cols, vals)
+    burger.updateOne(
+        cols, vals, req.params.id,
+        
+        function(result) {
         if (result.changedRows == 0){
             return res.status(404).end();
         } else {
