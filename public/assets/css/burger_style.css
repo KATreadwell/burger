@@ -5,8 +5,8 @@ body{
 }
 
 li {
-    padding: 5px;
-    margin: 5px;
+    padding: 10px;
+    margin: 10px;
   }
   
   .label {
@@ -22,5 +22,12 @@ li {
     margin-bottom: 5px;
   }
 
- 
+ #submit{
+   font-weight: bolder;
+   padding: 5px;
+ }
+
+ .devour-burger{
+   font-weight: bolder;
+ }
 

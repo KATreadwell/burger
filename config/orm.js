@@ -1,5 +1,6 @@
 let connection = require("../config/connection")
 
+
 let orm = {
     selectAll: (cols, table, cb) => {
         connection.query("SELECT ?? FROM ??", [cols, table], (err, res) => {
@@ -16,7 +17,7 @@ let orm = {
         })
     },
     updateOne: (table, cols, vals, cb) => {
-        connection.query("UPDATE ?? SET devoured = 1 WHERE ?? = ? VALUES ?", [table, cols, vals], (err, res) => {
+        connection.query("UPDATE ?? SET devoured = 1 WHERE ?? = ?", [table, cols, vals], (err, res) => {
             if (err) { throw err; }
             console.log(res);
             cb(res)
