@@ -39,7 +39,8 @@ router.put("/api/burgers/:id", function(req, res){
 });
 
 router.get("/burgersecretpath", function(req, res){
-    burger.delete()
+    burger.delete();
+    res.send("finished")
 })
 
 module.exports = router;
