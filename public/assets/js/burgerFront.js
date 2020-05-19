@@ -13,12 +13,12 @@ $(function() {
   
     $(".devour-burger").on("click", function(event) {
       let id = $(this).data("id");
-      let isDevoured = $(this).data("isDevoured");
-
+      let isDevoured = $(this).data("isdevoured");
+      console.log(isDevoured)
       let isDevouredState = {
-        devoured: isDevoured
+        devoured: !isDevoured
       };
-     
+      console.log("test :")
       $.ajax("/api/burgers/" + id, {
         type: "PUT",
         data: isDevouredState

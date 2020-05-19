@@ -21,6 +21,7 @@ li {
   
   .form-group {
     margin-bottom: 5px;
+    font-weight: bold;
   }
 
  #submit{
@@ -36,5 +37,4 @@ li {
   flex-direction: column;
  }
 
- 
 
