@@ -23,17 +23,9 @@ router.post("/api/burgers", function(req, res) {
 });
 
 router.put("/api/burgers/:id", function(req, res){
-    // let cols = ["devoured"];
-    
     let cols = ["devoured"];
     let vals = [JSON.parse(req.body.devoured)];
-    console.log(vals)
-    /*
-    {
-       devoured: req.body.devoured
-    }, devoured
-    */
-   
+ 
     burger.updateOne(
         cols, vals, req.params.id,
         

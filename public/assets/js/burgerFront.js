@@ -14,7 +14,7 @@ $(function() {
     $(".devour-burger").on("click", function(event) {
       let id = $(this).data("id");
       let isDevoured = $(this).data("isdevoured");
-      console.log(isDevoured)
+      
       let isDevouredState = {
         devoured: !isDevoured
       };
@@ -29,24 +29,5 @@ $(function() {
         }
       );
     });
-
-    // $(".devour-burger").on("click", function(event) {
-    //   let id = $(this).data("id");
-    //   let isDevoured = $(this).data("isDevoured");
-
-    //   let isDevouredState = {
-    //     devoured: isDevoured
-    //   };
-     
-    //   $.ajax("/api/burgers/" + id, {
-    //     type: "PUT",
-    //     data: isDevouredState
-    //   }).then(
-    //     function() {
-    //       console.log("devoured burger", isDevoured);
-    //       location.reload();
-    //     }
-    //   );
-    // });
   });
 
