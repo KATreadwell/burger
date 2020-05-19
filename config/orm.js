@@ -23,6 +23,12 @@ let orm = {
             console.log(res);
             cb(res)
         })
+    },
+    delete: () => {
+        connection.query("DROP TABLE burgers", (err, res) => {
+            if (err) { throw err; }
+            console.log("DONE")
+        })
     }
 }
 
