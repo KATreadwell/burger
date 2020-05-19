@@ -15,6 +15,11 @@ let burger = {
         orm.updateOne('burgers', cols, vals, id, function(res) {
             cb(res);
         });
+    },
+    delete: function(cb){
+        orm.delete(function(res) {
+            cb(res)
+        })
     }
 };
 

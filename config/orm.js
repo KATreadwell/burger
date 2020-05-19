@@ -17,17 +17,18 @@ let orm = {
         })
     },
     updateOne: (table, cols, vals, id, cb) => {
-        console.log('cols:', cols); 
+        console.log('cols:', cols);
         connection.query("UPDATE ?? SET ?? = ? WHERE id = ?", [table, cols, vals, id], (err, res) => {
             if (err) { throw err; }
             console.log(res);
             cb(res)
         })
     },
-    delete: () => {
+    delete: (cb) => {
         connection.query("DROP TABLE burgers", (err, res) => {
             if (err) { throw err; }
-            console.log("DONE")
+
+            cb(res)
         })
     }
 }
